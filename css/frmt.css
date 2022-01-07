@@ -1,0 +1,235 @@
+
+
+body{
+    font-family: Verdana, sans-serif;
+    background-color:#f1f0f0;
+ 
+}
+
+#ico_menu{
+    margin-top: 2px;
+    margin-left: 80px;
+    /* width: 3%; */
+    width:35px;
+}
+
+.tit_loja{
+    margin-top: -50px;
+    display: inline-block;
+    font-family: Bradley Hand, cursive;
+    color: white;
+    
+}
+
+.container_header{
+    top:0;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    /* background-color: #363636; */
+    /* background-color: white; */
+    background-color:#0078d4;
+    border-bottom: 1px solid rgb(214, 207, 207);
+    z-index: 4;
+
+}
+
+.container_menu {
+    float: right;
+    margin-top: 10px;
+    margin-right: 60px;
+}
+
+.container_menu  li{ 
+    display: inline-block;
+}
+
+.container_menu  li ul{ 
+    display: inline-block;
+    margin-right:00px ;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 0px 5px;
+    margin-right: 50px;
+    border-color: rgb(108, 114, 108);
+ } 
+
+.container_menu  li ul:hover{
+    border-bottom: 1px solid rgb(255, 255, 255);
+    transition: 0.5s;
+    /* color: rgb(119, 115, 116); */
+} 
+
+.container_barra_opc{
+    top:50px;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    /* background-color: #363636; */
+    /* background-color: white; */
+    background-color:white;
+    border-bottom: 1px solid rgb(214, 207, 207);
+    z-index: 5;
+
+}
+
+.container_opcs {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 130px;
+}
+
+.container_btns{
+    float: right;
+    margin-top: 10px;
+    margin-right: 90px;
+    display: inline-block;
+    
+}
+
+.btns {
+    background-color:#0078d4;
+    border:Solid 1px #80bff0;
+    padding: 7px 50px;
+    color: white;
+    cursor: pointer;
+}
+
+.btns:hover { 
+    background-color:#095c9b;
+    transition: 0.3s;
+}
+
+
+
+.container_opcs  li{ 
+    display: inline-block;
+}
+
+.container_opcs  li ul{ 
+    display: inline-block;
+    padding: 8px 30px;
+    color: #0078d4;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-right: 50px;
+    font-weight: bold;
+    
+ } 
+
+ #opc_novo{
+    border-right: 1px solid #0078d4;
+    border-left: 1px solid #0078d4;
+    border-top: 3px solid #0078d4;
+    background-color: rgb(240, 240, 240);
+}
+
+ .frm_cad_produtos{
+     margin-top: 100px;
+
+ }
+
+ #cx_descricao{
+     height: 160px;
+     min-height: 160px;
+     max-width: 100%;
+     min-width: 100%;
+
+ }
+
+ .container_img_prod {
+    border:1px solid #9C9C9C;
+    background-color: #E8E8E8;
+
+    }
+    
+.img_prod{
+    padding: 10px;
+    margin-left: 10px;
+     width: 150px;
+     cursor: pointer;
+
+ }
+
+ .barra_sepra{
+     margin-top: 30px;
+     width: 100%;
+     height: 1px;
+     background-color:#c2c2c2;
+ }
+
+
+ .cont_img_prod {
+    border:1px solid #9C9C9C;
+    background-color: #E8E8E8;
+
+    }
+    
+.img_prod_it{
+    padding: 10px;
+    margin-left: 10px;
+     width: 210px;
+     cursor: pointer;
+
+ }
+
+ .itns_prod{
+    margin-top: 10px;
+    margin-left: 20px;
+ }
+
+ .nme_prod_it{
+    font-weight: 600;
+ }
+
+ .preco_prod_it{
+    color: #B5B5B5    ;
+
+}
+
+.preco_prod_it_liq{
+
+   
+}
+
+
+ .cont_lancamento{
+      border: 1px solid lightblue;
+ 
+ }
+
+ .container_prod{
+     /* min-width: 200px; */
+     min-width: 250px;
+	border: 1px solid lightgrey;
+    
+}
+
+
+.prim_ittm{
+    margin-left: 50px;
+
+}
+
+
+
+
+.cont_btn_comp{
+    margin: 20px;
+    /* margin-left: 10%; */
+}
+
+.btns_comp{
+    background-color: #706868;
+    border:Solid 1px #80bff0;
+    padding: 7px 50px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btns_comp:hover{
+    background-color: #36363600;
+    color: #363636;
+}
+
