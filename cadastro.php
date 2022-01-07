@@ -20,7 +20,7 @@
                                 <input class="cx_text" type="text" id="cx_nome" autofocus>											
                             </div>	
                             <div class="grupo_cxs col-3" id="grupo_cx_nome">
-                                 <label class='lb_text'>Selecionar Imagem Produto</label>
+                                 <label class='lb_text tit_img'>Selecionar Imagem Produto</label>
                                 <div class='container_img_prod'><img src="img/img_prod_default.png" class='img_prod'></div>											
                             </div>	
                     </div>
@@ -38,7 +38,7 @@
 
                             <div class="grupo_cxs col-3" id="grupo_cx_nome">
                                 <label class='lb_text'>Valor Produto</label>
-                                <input class="cx_text" type="text" id="cx_vlr_liquido" >											
+                                <input class="cx_text" type="text" id="cx_vlr_liquido" disabled>											
                             </div>
 
                     </div>
@@ -54,24 +54,27 @@
                     <div class="row">	
                             <div class="grupo_cxs col-6" id="grupo_cx_nome">
                                 <label class='lb_text'>Inserir Produto em Destaque:</label>
-                                    <input type="checkbox" name='Sim'>       
-                                <label class='lb_text'>Sim</label>
+                                    <input type="checkbox" name='Sim' id='check_prod_destaq'>       
+                                   <label class='lb_text'>Sim</label>
                             </div>	
                     </div>
 
                     <div class="row">	
                             <div class="grupo_cxs col-6" id="grupo_cx_nome">
                                 <label class='lb_text'>Formas de Pagamento:</label>
-                                    <input type="checkbox" name='Sim'>       
-                                   <label class='lb_text'>Boleto</label>
+                                    <input type="checkbox" id='check_frma_pgt_todas'>       
+                                    <label class='lb_text'>Todas</label>
+                                
+                                    <input type="checkbox" id='check_frma_pgt_boleto'>       
+                                    <label class='lb_text'>Boleto</label>
 
-                                   <input type="checkbox" name='Sim'>       
+                                   <input type="checkbox" id='check_frma_pgt_credito'>       
                                    <label class='lb_text'>Crédito</label>
 
-                                   <input type="checkbox" name='Sim'>       
+                                   <input type="checkbox" id='check_frma_pgt_transferencia'>       
                                    <label class='lb_text'>Trânsferencia</label>
 
-                                   <input type="checkbox" name='Sim'>       
+                                   <input type="checkbox" id='check_frma_pgt_pix'>       
                                    <label class='lb_text'>Pix</label>
                             </div>	
                     </div>
@@ -85,12 +88,7 @@
         </form>
 
 
-        <script >
 
-            let select_opc = document.querySelector(".container_opcs")
-            select_opc.addEventListener('click', select_opcs)
-            
-        </script>
   <?php 
         include_once('includes/script.php');  
   ?>      

@@ -9,4 +9,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/container-flex.css">
     <link rel="stylesheet" href="css/frmt.css">
+
+    <div class='msg_erro'></div>
+    <div class='msg_sucesso'></div>
 </head>

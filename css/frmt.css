@@ -1,7 +1,7 @@
 
 
 body{
-    font-family: Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif; 
     background-color:#f1f0f0;
  
 }
@@ -137,9 +137,14 @@ body{
 
  }
 
+ #cx_vlr_liquido{
+     background-color:#E8E8E8;
+ }
+
  .container_img_prod {
     border:1px solid #9C9C9C;
     background-color: #E8E8E8;
+    margin-top: 10px;
 
     }
     
@@ -232,4 +237,35 @@ body{
     background-color: #36363600;
     color: #363636;
 }
+
+.msg_sucesso{
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    padding: 5px 40px;
+    border-radius: 3px;
+    background-color:#4747dda2;
+    box-shadow: 0px 0px 10px  0px #20165a;
+    color:rgb(231, 212, 212);
+    z-index: 5;
+    display: none;
+  
+}
+
+.msg_erro{
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    padding: 5px 40px;
+    border-radius: 3px;
+    background-color:rgba(255, 0, 0, 0.596);
+    box-shadow: 0px 0px 10px 0px #161616;
+    color:rgb(231, 212, 212);
+    z-index: 5;
+    display: none;
+  
+}
+
+
+
 

@@ -1,156 +1,173 @@
 
-//let btn_consulta_pedido = document.querySelector('#btn_consulta_pedido');
-//btn_consulta_pedido.addEventListener('click', consulta_pedido)
+let btn_cadastra = document.querySelector('#btn_cadastra')
+btn_cadastra.addEventListener('click', cadastrar_item)
+
+let check_frma_pgt_todas = document.querySelector('#check_frma_pgt_todas')
+check_frma_pgt_todas.addEventListener('click', select_opcs_pgto)
 
 
-window.addEventListener('load',inicia_app)
-window.addEventListener('scroll',exec_tst)
-window.addEventListener('resize',resize_home)
+function select_opcs_pgto() {
+
+    let check_frma_pgt_todas = $('#check_frma_pgt_todas').is(':checked');
+
+    if(check_frma_pgt_todas == true) {
+        opc_pgto = true
+    } else {
+        opc_pgto = false
+    }
+
+    
+    $('#check_frma_pgt_boleto').prop('checked',opc_pgto);
+    $('#check_frma_pgt_credito').prop('checked',opc_pgto);
+    $('#check_frma_pgt_transferencia').prop('checked',opc_pgto);
+    $('#check_frma_pgt_pix').prop('checked',opc_pgto);
 
 
-let txt_focus = document.querySelector(".frm_registro")
 
-txt_focus.addEventListener('focus', insere_foco_txt,true)
-txt_focus.addEventListener('blur', remove_foco_txt,true)
+    
+}
 
+function cadastrar_item() {
+    
 
-
-
-
-function resize_home(event) {
-
-        wdth_window =  event.target.screen.width
+    // define o tipo de requisição - Cadastro de produtos
+    let tipo_requisicao = 1
 
 
-                if(wdth_window < 1305 && wdth_window > 1014) {
-                    console.log('Mantém 3 itens')
-                }   else if(wdth_window < 1014 && wdth_window > 764) {
-                    console.log('Mantém 2 itens')
-                }   else if(wdth_window < 764) {
-                    console.log('Mantém 1 itens')
-                } else {
-                    console.log('Mantém 4 itens')
-                }
 
+    // se variavel  = 0, há campos em branco no formulario, execução é finalizada
+    // se  variavel  = 1, todos os campos estão preenchidos, execução prossegue com o cadastro
+    var_valid_form = 0
         
-}
 
-function exec_tst(event){
-	
-    /*
-    if (window.scrollY > 50 ) {
-		$('#container_header').css('backgroundColor','rgba(250, 250, 250, 0.9)')
-		$('#container_header').css('boxShadow','1px 1px 10px 5px  gray')
-		$('#container_header').css('transition','0.5s')
-		$('.opc_menu_incio').css('color','#4682B4')
+        criar_objt_frm()
+            valid_frm()
 
-		$('#img_logo').attr('src','img/logo_transp.png')
 
-	} else {
-		$('#container_header').css('backgroundColor','rgba(46, 46, 54, 1)')
-		$('#container_header').css('boxShadow','none')
-		$('#Menu_inicial').css('color','#B0C4DE')
-		$('.opc_menu_incio').css('color','#B0C4DE')
-
-		$('#img_logo').attr('src','img/logo4.png')
-	}
-    */
-
-}
+                if(var_valid_form == 0) {
+                    $('.msg_erro').html('Preencha todos os campos para prosseguir!!!') 
+                    exibe_erro()
+                    return
+                } 
 
 
 
+                $.ajax({
+                    method:'POST',
+                    url:'modulos/functions.php',
+                    data:
+                    {
+                        tipo_requisicao:tipo_requisicao,
+                        objt_frm_cad:objt_frm_cad  
+                    },
+                    success:function(retorno) {
+                        
+                        if(retorno == 1) {
+                            $('.msg_sucesso').html('Registro cadastrado com exito.') 
+                            exibe_sucess()
+                            limpar_form()
+                            $('#cx_nome').focus()
+                         //   carregar_registros ()
+                        } else {
 
+                            $('.msg_erro').html('Erro ao cadastrar Material.Contate o Desenvolvedor!!!') 
+                            exibe_erro()
 
-function inicia_app() {
+                        }
 
-    opc_select = 1
-}
+                        
 
-
-function select_opcs(event) {
-
-    let elemnt =  event.srcElement.id
-    let  type_element  = elemnt.substr(0,3) 
-    
-    
-    if(type_element =='opc') {
-
-        $('.opcs').css('border','none')
-        $('.opcs').css('backgroundColor','white')
-
-
-
-         $(`#${elemnt}`).css('border-right','1px solid #0078d4')
-         $(`#${elemnt}`).css('border-left','1px solid #0078d4')
-         $(`#${elemnt}`).css('border-top','3px solid #0078d4')
-         $(`#${elemnt}`).css('background-color','rgb(240, 240, 240)')
-
-
-                    if(elemnt == 'opc_novo') {
-                        opc_select = 1
-                        $('.tit_frm').text('Cadastro de Produtos')
-                    } else if(elemnt == 'opc_edit')  {
-                        opc_select = 2
-                        $('.tit_frm').text('Editar Produtos')
                     }
+                })    
+
+
+}
+
+
+function limpar_form() {
+
+     $('#cx_nome').val('')
+     $('#cx_preco').val('')
+     $('#cx_desconto').val('')
+     $('#cx_vlr_liquido').val('')
+     $('#cx_qtd_estoque').val('')
+     $('#cx_descricao').val('')
+
+}
+
+function criar_objt_frm() {
+
+    let cx_nome = $('#cx_nome').val()
+    let cx_preco = $('#cx_preco').val()
+    let cx_desconto = $('#cx_desconto').val()
+    let cx_vlr_liquido = $('#cx_vlr_liquido').val()
+    let cx_qtd_estoque = $('#cx_qtd_estoque').val()
+    let cx_descricao = $('#cx_descricao').val()
+
+    
+    let check_prod_destaq = $('#check_prod_destaq').is(':checked');
+    let check_frma_pgt_boleto = $('#check_frma_pgt_boleto').is(':checked');
+    let check_frma_pgt_credito = $('#check_frma_pgt_credito').is(':checked');
+    let check_frma_pgt_transferencia = $('#check_frma_pgt_transferencia').is(':checked');
+    let check_frma_pgt_pix = $('#check_frma_pgt_pix').is(':checked');
+
+    let txt_formas_pgto  = "Boleto"
 
 
 
+        if(check_prod_destaq == true) {
+            txt_produto_destaque = 1 
+        } else {
+            txt_produto_destaque = 0
         }
-}
 
-function insere_foco_txt(event){    
 
-    let elemnt =  event.srcElement.id
-    let  type_element  = elemnt.substr(0,2) 
-    
-    
-    if(type_element =='cx') {
-         $(`#${elemnt}`).css('box-shadow','0px 0px 10px 0px #B5B5B5')
-
+        if(check_frma_pgt_boleto ==true) {
+            txt_formas_pgto ='';
+            txt_formas_pgto +='Boleto'
         }
- 
- }
 
- function remove_foco_txt(event){    
-
-    let elemnt =  event.srcElement.id
-    let  type_element  = elemnt.substr(0,2) 
-    
-    
-    if(type_element =='cx') {
-         $(`#${elemnt}`).css('box-shadow','none')
-
+        if(check_frma_pgt_credito ==true) {
+           txt_formas_pgto +=',Crédito'
         }
- 
- }
 
-/*
-function exibe_erro() {
+        if(check_frma_pgt_transferencia ==true) {
+            txt_formas_pgto +=',Transferência'
+         }
 
-    $('.msg_erro').css('display','block')
-    setTimeout(() => {
-        inibie_erro()
-    }, 4000);
+         if(check_frma_pgt_pix ==true) {
+            txt_formas_pgto +=',Pix'
+         }
+
+
+    
+    objt_frm_cad   = {
+        cx_nome:cx_nome,
+        cx_preco:cx_preco,
+        cx_desconto:cx_desconto,
+        cx_vlr_liquido:cx_vlr_liquido,
+        cx_qtd_estoque:cx_qtd_estoque,
+        cx_descricao:cx_descricao,
+        txt_produto_destaque:txt_produto_destaque,
+        txt_formas_pgto:txt_formas_pgto
+        }
+
+               
+    
+
 }
 
-function inibie_erro() {
-    $('.msg_erro').css('display','none')
+
+function valid_frm() {
+
+    if(!objt_frm_cad.cx_nome || !objt_frm_cad.cx_preco ||
+       !objt_frm_cad.cx_desconto || !objt_frm_cad.cx_vlr_liquido ||
+       !objt_frm_cad.cx_qtd_estoque || !objt_frm_cad.cx_descricao) 
+       {
+        var_valid_form = 0
+       } else {
+        var_valid_form = 1    
+       }    
+    
+
 }
-
-
-
-function exibe_sucess() {
-
-    $('.msg_sucesso').css('display','block')
-    setTimeout(() => {
-        inibie_sucess()
-    }, 4000);
-}
-
-function inibie_sucess() {
-    $('.msg_sucesso').css('display','none')
-}
-
-*/
