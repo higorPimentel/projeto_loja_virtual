@@ -14,10 +14,51 @@
                         <div class='barra_sepra'></div>
                        
                         <div class="row cont_lancamento">
-                              <input class='btns_blocs' type="button" value='>' id='btn_cont_lanc_next'>
-                                  <input class='btns_blocs' type="button" value='<' id='btn_cont_lanc_previous'>	
+                              <input class='btns_blocs' type="button" value='>' id='btn_lanc_next'>
+                                  <input class='btns_blocs' type="button" value='<' id='btn_lanc_previous'>	
                                        <div class="grupo_cxs col-6">                           
                                           <div class="row grup_lanc">	
+                                                <!--  
+                                                  <div class="grupo_cxs col-2-2" >
+                                                        <div class='container_prod'>
+                                                               <div class='cont_img_prod'>
+                                                                      <img src="img/img_prod_default.png" class='img_prod_it'>
+                                                               </div>   
+                                                               <div class='nme_prod_it itns_prod'>
+                                                                      Produto Teste Teste
+                                                               </div> 
+                                                               <div class='preco_prod_it itns_prod'>
+                                                                    <s> De: R$ 100,00 </s>
+                                                               </div> 
+                                                               <div class='preco_prod_it_liq itns_prod'>
+                                                                    Por: R$ 50,00 
+                                                               </div> 
+                                                               <div class='forma_pgto itns_prod'>
+                                                                    Formas de Pagamento: Crédito, Pix
+                                                               </div>
+                                                               <div class='desc_item itns_prod'>
+                                                                    Descrição Item
+                                                               </div>
+                                                               <div class='cont_btn_comp'>
+                                                                    <input class='btns_comp' type="button" value='Comprar'> 
+                                                               </div> 
+                                                        </div>
+                                                 </div>
+
+                                                 -->
+                                          
+                                           </div>
+                              </div>
+                     </div>
+
+                     <h1 class='tit_frm'>&#10004;Promoções e Ofertas</h1>
+                        <div class='barra_sepra'></div>
+                       
+                        <div class="row cont_lancamento">
+                              <input class='btns_blocs' type="button" value='>' id='btn_oferta_next'>
+                                  <input class='btns_blocs' type="button" value='<' id='btn_oferta_previous'>	
+                                       <div class="grupo_cxs col-6">                           
+                                          <div class="row grup_ofertas">	
                                                 <!--  
                                                   <div class="grupo_cxs col-2-2" >
                                                         <div class='container_prod'>
@@ -55,15 +96,30 @@
 
           <script>
 
-         let btn_cont_lanc_next = document.querySelector('#btn_cont_lanc_next')
-         btn_cont_lanc_next.addEventListener('click', next_item_prodt)
+         let btn_lanc_next = document.querySelector('#btn_lanc_next')
+         btn_lanc_next.addEventListener('click', next_item_prodt)
 
+        
+        /*
+         let btn_oferta_next = document.querySelector('#btn_oferta_next')
+         btn_oferta_next.addEventListener('click', next_item_oferta)
+
+         */ 
+          
+         
+         
+         
                window.addEventListener('load',inicia_app_indx)
 
 
                     function inicia_app_indx() {
                          qtd_prodts_bloc = 4
                          pg_itens = 0
+
+                         qtd_prodts_bloc_ofertas = 4
+                         pg_itens_ofertas = 0
+
+                         
                          load_prodts()
                     }
           </script>

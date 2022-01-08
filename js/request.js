@@ -27,7 +27,7 @@ function next_item_prodt() {
     pg_itens ++
     ittm_max = qtd_prodts_bloc + pg_itens
       
-        if(ittm_max  == data_return.length + 1) {
+        if(ittm_max  == data_return_lanc.length + 1) {
             pg_itens = 0    
         }
         insere_prodts_cont_lanc()
@@ -50,12 +50,34 @@ function load_prodts() {
                  success:function(retorno) {
 
                         data_return = JSON.parse(retorno)
+                       
+                        define_itens_lanc()
                         insere_prodts_cont_lanc()
+
+                        define_itens_ofertas()
+                        insere_prodts_cont_ofertas()
                      
-                        //console.log(data_return.length)                     
+                        //console.log(data_return)                     
 
                  }
              })    
+
+
+}
+
+function define_itens_lanc() {
+
+    data_return_lanc = [];
+    
+    for (let i = 0; i < data_return.length; i++) { 
+
+        if(data_return[i].def_produto_destaque ==1) { 
+
+            data_return_lanc.push(data_return[i])
+        }
+
+
+    }
 
 
 }
@@ -67,18 +89,19 @@ function insere_prodts_cont_lanc() {
     let string_info = ''
 
     $(".grup_lanc").html(''); 
-    //console.log(qtd_prodts_bloc)
     
-    for (let i = 0 + pg_itens; i < qtd_prodts_bloc + pg_itens; i++) {
+    for (let i = 0 + pg_itens; i < qtd_prodts_bloc + pg_itens; i++) {       
         
-        //console.log("i - " + i)
-        path_img = 'img/img_prod_default.png'
-        nme_produto = data_return[i].nome
-        preco_item =  data_return[i].preco
-        vlr_liq_prod = data_return[i].vlr_liquido_produto
-        frms_pgto = data_return[i].formas_pgto
-        descricao_item =  data_return[i].descricao
+        
     
+        path_img = 'img/img_prod_default.png'
+        nme_produto = data_return_lanc[i].nome
+        preco_item =  data_return_lanc[i].preco
+        vlr_liq_prod = data_return_lanc[i].vlr_liquido_produto
+        frms_pgto = data_return_lanc[i].formas_pgto
+        descricao_item =  data_return_lanc[i].descricao
+
+           
     
          string_info =  "<div class='grupo_cxs col-2-2'>" + 
         "<div class='container_prod'>" + 
@@ -112,12 +135,80 @@ function insere_prodts_cont_lanc() {
         
         $(string_info).appendTo(".grup_lanc"); 
 
-
-
-        
     }
 
-   
+}
+
+
+function define_itens_ofertas() {
+
+    data_return_ofertas = [];
+    
+    for (let i = 0; i < data_return.length; i++) { 
+
+        if(data_return[i].def_produto_ofertas ==1) { 
+
+            data_return_ofertas.push(data_return[i])
+        }
+
+    }
+
+}
+
+
+function insere_prodts_cont_ofertas() {
+
+
+    let string_info = ''
+
+    $(".grup_ofertas").html(''); 
+    //console.log(data_return_ofertas)
+    
+    for (let i = 0 + pg_itens_ofertas; i < qtd_prodts_bloc_ofertas + pg_itens_ofertas; i++) {       
+        
+        
+        //console.log("i - " + i)
+        path_img = 'img/img_prod_default.png'
+        nme_produto = data_return_ofertas[i].nome
+        preco_item =  data_return_ofertas[i].preco
+        vlr_liq_prod = data_return_ofertas[i].vlr_liquido_produto
+        frms_pgto = data_return_ofertas[i].formas_pgto
+        descricao_item =  data_return_ofertas[i].descricao
+    
+    
+         string_info =  "<div class='grupo_cxs col-2-2'>" + 
+        "<div class='container_prod'>" + 
+               "<div class='cont_img_prod'>" +
+                    "<img src='" + path_img + "' class='img_prod_it'>" + 
+               "</div>" +    
+               "<div class='nme_prod_it itns_prod'>" + 
+                      nme_produto + 
+               "</div>" +  
+             
+             
+             // VALIDAR SE O ITEM TEM DESCONTO
+               "<div class='preco_prod_it itns_prod'>" + 
+                    "<s> De:"  + preco_item + "</s>" + 
+              "</div>" +  
+               "<div class='preco_prod_it_liq itns_prod'>" + 
+                    "Por: " +  vlr_liq_prod +  
+               "</div>" +  
+               
+               
+               "<div class='forma_pgto itns_prod'>" + 
+                    "Formas de Pagamento: "  + frms_pgto + 
+               "</div>" + 
+               "<div class='desc_item itns_prod'>" + 
+                      "Descrição: " +  descricao_item + 
+               "</div>" + 
+               "<div class='cont_btn_comp'>" + 
+                    "<input class='btns_comp' type='button' value='Comprar'>" +  
+               "</div>" + 
+        "</div>" 
+        
+        $(string_info).appendTo(".grup_ofertas"); 
+
+    }
 
 }
 
@@ -201,6 +292,7 @@ function criar_objt_frm() {
 
     
     let check_prod_destaq = $('#check_prod_destaq').is(':checked');
+    let check_prod_ofertas = $('#check_prod_ofertas').is(':checked');
     let check_frma_pgt_boleto = $('#check_frma_pgt_boleto').is(':checked');
     let check_frma_pgt_credito = $('#check_frma_pgt_credito').is(':checked');
     let check_frma_pgt_transferencia = $('#check_frma_pgt_transferencia').is(':checked');
@@ -214,6 +306,13 @@ function criar_objt_frm() {
             txt_produto_destaque = 1 
         } else {
             txt_produto_destaque = 0
+        }
+
+      
+        if(check_prod_ofertas == true) {
+            txt_produto_ofertas = 1 
+        } else {
+            txt_produto_ofertas = 0
         }
 
 
@@ -244,6 +343,7 @@ function criar_objt_frm() {
         cx_qtd_estoque:cx_qtd_estoque,
         cx_descricao:cx_descricao,
         txt_produto_destaque:txt_produto_destaque,
+        txt_produto_ofertas:txt_produto_ofertas,
         txt_formas_pgto:txt_formas_pgto
         }
 

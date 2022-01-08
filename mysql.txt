@@ -6,6 +6,7 @@ CREATE TABLE tb_produtos (
   vlr_liquido_produto DECIMAL(7,2) DEFAULT NULL,
   qtd_estoque int(11) DEFAULT NULL,
   def_produto_destaque CHAR(1) DEFAULT NULL,
+  def_produto_ofertas CHAR(1) DEFAULT NULL,
   formas_pgto VARCHAR(150) DEFAULT NULL,
   descricao	 VARCHAR(300) DEFAULT NULL,
   path_imagem VARCHAR(100) DEFAULT NULL,

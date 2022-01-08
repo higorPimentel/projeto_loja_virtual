@@ -63,6 +63,14 @@
 
                     <div class="row">	
                             <div class="grupo_cxs col-6" id="grupo_cx_nome">
+                                <label class='lb_text'>Inserir Produto em Ofertas:</label>
+                                    <input type="checkbox" name='Sim' id='check_prod_ofertas'>       
+                                   <label class='lb_text'>Sim</label>
+                            </div>	
+                    </div>
+
+                    <div class="row">	
+                            <div class="grupo_cxs col-6" id="grupo_cx_nome">
                                 <label class='lb_text'>Formas de Pagamento:</label>
                                     <input type="checkbox" id='check_frma_pgt_todas'>       
                                     <label class='lb_text'>Todas</label>

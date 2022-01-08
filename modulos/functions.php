@@ -32,6 +32,7 @@ $cx_vlr_liquido = $_POST['objt_frm_cad']['cx_vlr_liquido'];
 $cx_qtd_estoque = $_POST['objt_frm_cad']['cx_qtd_estoque'];
 $cx_descricao = $_POST['objt_frm_cad']['cx_descricao'];
 $txt_produto_destaque = $_POST['objt_frm_cad']['txt_produto_destaque'];
+$txt_produto_ofertas = $_POST['objt_frm_cad']['txt_produto_ofertas'];
 $txt_formas_pgto = $_POST['objt_frm_cad']['txt_formas_pgto'];
 
 
@@ -45,6 +46,7 @@ $txt_formas_pgto = $_POST['objt_frm_cad']['txt_formas_pgto'];
         vlr_liquido_produto,
         qtd_estoque,
         def_produto_destaque,
+        def_produto_ofertas,
         formas_pgto,
         descricao,
         path_imagem,
@@ -58,6 +60,7 @@ $txt_formas_pgto = $_POST['objt_frm_cad']['txt_formas_pgto'];
             '$cx_vlr_liquido',
             '$cx_qtd_estoque',
             '$txt_produto_destaque',
+            '$txt_produto_ofertas',
             '$txt_formas_pgto',
             '$cx_descricao',
             'path_img',

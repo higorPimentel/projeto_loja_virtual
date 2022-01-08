@@ -27,7 +27,7 @@ function resize_home(event) {
                     qtd_prodts_bloc = 4
                 }
 
-                insere_prodts_cont()
+                insere_prodts_cont_lanc()
           
         
 }
