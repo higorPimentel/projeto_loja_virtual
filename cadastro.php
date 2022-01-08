@@ -1,5 +1,7 @@
 <?php
 
+        
+        include_once('includes/script.php');  
         include_once('includes/topo.php');
         include_once('includes/header.php');
         include_once('includes/barra_opcoes.php');
@@ -88,9 +90,28 @@
         </form>
 
 
+        
+        <script>
 
+            let cx_preco = document.querySelector('#cx_preco')
+            cx_preco.addEventListener('blur', insere_vlr_prod)
+
+
+            let cx_desconto = document.querySelector('#cx_desconto');
+            cx_desconto.addEventListener('blur', calc_desconto)
+
+            let check_frma_pgt_todas = document.querySelector('#check_frma_pgt_todas')
+            check_frma_pgt_todas.addEventListener('click', select_opcs_pgto)
+
+            let txt_focus = document.querySelector(".frm_registro")
+
+            txt_focus.addEventListener('focus', insere_foco_txt,true)
+            txt_focus.addEventListener('blur', remove_foco_txt,true)
+
+
+        </script>
   <?php 
-        include_once('includes/script.php');  
+        
   ?>      
     
 </body>

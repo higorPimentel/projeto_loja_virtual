@@ -157,7 +157,8 @@ body{
  }
 
  .barra_sepra{
-     margin-top: 30px;
+     margin-top: 10px;
+     margin-bottom: 20px;
      width: 100%;
      height: 1px;
      background-color:#c2c2c2;
@@ -181,6 +182,8 @@ body{
  .itns_prod{
     margin-top: 10px;
     margin-left: 20px;
+    margin-right: 10px;
+    word-break: break-all;
  }
 
  .nme_prod_it{
@@ -207,6 +210,7 @@ body{
      /* min-width: 200px; */
      min-width: 250px;
 	border: 1px solid lightgrey;
+    margin-bottom: 30px;
     
 }
 
@@ -236,6 +240,30 @@ body{
 .btns_comp:hover{
     background-color: #36363600;
     color: #363636;
+}
+
+.btns_blocs{
+    position: absolute; 
+    z-index: 5;
+
+    background-color: #00000046;
+    border:Solid 1px #80bff0;
+    padding: 7px 15px;
+    font-weight: bold;
+    color: rgb(138, 115, 115);
+    cursor: pointer;
+
+}
+
+#btn_cont_lanc_next{    
+    margin-top: 200px;
+    right: 100;
+}
+
+#btn_cont_lanc_previous{
+    
+    margin-top: 200px;
+    left: 90;
 }
 
 .msg_sucesso{

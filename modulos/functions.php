@@ -15,7 +15,7 @@ $tipo_requisicao = $_POST['tipo_requisicao'];
         if($tipo_requisicao ==1) {
             echo(cadastrar_produto());
         } elseif ($tipo_requisicao ==2) { 
-            echo(select_itens_cad());
+            echo(carregar_produtos());
         }
 
 
@@ -72,9 +72,9 @@ $txt_formas_pgto = $_POST['objt_frm_cad']['txt_formas_pgto'];
 
 }       
 
-function select_itens_cad() {
+function carregar_produtos() {
 
-    $sql_select = "SELECT * FROM  registros_materiais";      
+    $sql_select = "SELECT * FROM  tb_produtos";      
 
     $process_query =  mysqli_query($_SESSION['conn'],$sql_select);
 

@@ -1,41 +1,34 @@
 
-let cx_preco = document.querySelector('#cx_preco')
-cx_preco.addEventListener('blur', insere_vlr_prod)
-
-
-let cx_desconto = document.querySelector('#cx_desconto');
-cx_desconto.addEventListener('blur', calc_desconto)
-
-
 
 window.addEventListener('load',inicia_app)
 window.addEventListener('scroll',exec_tst)
 window.addEventListener('resize',resize_home)
 
 
-let txt_focus = document.querySelector(".frm_registro")
-
-txt_focus.addEventListener('focus', insere_foco_txt,true)
-txt_focus.addEventListener('blur', remove_foco_txt,true)
-
 
 
 
 function resize_home(event) {
 
-        wdth_window =  event.target.screen.width
+       // wdth_window =  event.target.screen.width
+        wdth_window =  event.target.window.innerWidth
+
+
+                // DEFINE QTD. ITENS BLOCOS
 
 
                 if(wdth_window < 1305 && wdth_window > 1014) {
-                    console.log('Mantém 3 itens')
-                }   else if(wdth_window < 1014 && wdth_window > 764) {
-                    console.log('Mantém 2 itens')
-                }   else if(wdth_window < 764) {
-                    console.log('Mantém 1 itens')
-                } else {
-                    console.log('Mantém 4 itens')
+                     qtd_prodts_bloc = 3
+                }   else if(wdth_window < 1014 && wdth_window > 764) {                  
+                    qtd_prodts_bloc = 2
+                }   else if(wdth_window < 764) {                    
+                    qtd_prodts_bloc = 1
+                } else {                   
+                    qtd_prodts_bloc = 4
                 }
 
+                insere_prodts_cont()
+          
         
 }
 
@@ -69,6 +62,7 @@ function exec_tst(event){
 function inicia_app() {
 
     opc_select = 1
+    
 }
 
 

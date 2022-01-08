@@ -1,10 +1,4 @@
 
-let btn_cadastra = document.querySelector('#btn_cadastra')
-btn_cadastra.addEventListener('click', cadastrar_item)
-
-let check_frma_pgt_todas = document.querySelector('#check_frma_pgt_todas')
-check_frma_pgt_todas.addEventListener('click', select_opcs_pgto)
-
 
 function select_opcs_pgto() {
 
@@ -26,6 +20,107 @@ function select_opcs_pgto() {
 
     
 }
+
+
+function next_item_prodt() {
+
+    pg_itens ++
+    ittm_max = qtd_prodts_bloc + pg_itens
+      
+        if(ittm_max  == data_return.length + 1) {
+            pg_itens = 0    
+        }
+        insere_prodts_cont_lanc()
+
+}
+
+function load_prodts() {
+
+ // define o tipo de requisição - LOAD PRODUTOS
+ let tipo_requisicao = 2
+
+
+             $.ajax({
+                 method:'POST',
+                 url:'modulos/functions.php',
+                 data:
+                 {
+                     tipo_requisicao:tipo_requisicao                  
+                 },
+                 success:function(retorno) {
+
+                        data_return = JSON.parse(retorno)
+                        insere_prodts_cont_lanc()
+                     
+                        //console.log(data_return.length)                     
+
+                 }
+             })    
+
+
+}
+
+
+function insere_prodts_cont_lanc() {
+
+
+    let string_info = ''
+
+    $(".grup_lanc").html(''); 
+    //console.log(qtd_prodts_bloc)
+    
+    for (let i = 0 + pg_itens; i < qtd_prodts_bloc + pg_itens; i++) {
+        
+        //console.log("i - " + i)
+        path_img = 'img/img_prod_default.png'
+        nme_produto = data_return[i].nome
+        preco_item =  data_return[i].preco
+        vlr_liq_prod = data_return[i].vlr_liquido_produto
+        frms_pgto = data_return[i].formas_pgto
+        descricao_item =  data_return[i].descricao
+    
+    
+         string_info =  "<div class='grupo_cxs col-2-2'>" + 
+        "<div class='container_prod'>" + 
+               "<div class='cont_img_prod'>" +
+                    "<img src='" + path_img + "' class='img_prod_it'>" + 
+               "</div>" +    
+               "<div class='nme_prod_it itns_prod'>" + 
+                      nme_produto + 
+               "</div>" +  
+             
+             
+             // VALIDAR SE O ITEM TEM DESCONTO
+               "<div class='preco_prod_it itns_prod'>" + 
+                    "<s> De:"  + preco_item + "</s>" + 
+              "</div>" +  
+               "<div class='preco_prod_it_liq itns_prod'>" + 
+                    "Por: " +  vlr_liq_prod +  
+               "</div>" +  
+               
+               
+               "<div class='forma_pgto itns_prod'>" + 
+                    "Formas de Pagamento: "  + frms_pgto + 
+               "</div>" + 
+               "<div class='desc_item itns_prod'>" + 
+                      "Descrição: " +  descricao_item + 
+               "</div>" + 
+               "<div class='cont_btn_comp'>" + 
+                    "<input class='btns_comp' type='button' value='Comprar'>" +  
+               "</div>" + 
+        "</div>" 
+        
+        $(string_info).appendTo(".grup_lanc"); 
+
+
+
+        
+    }
+
+   
+
+}
+
 
 function cadastrar_item() {
     
