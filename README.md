@@ -1,15 +1,28 @@
 # projeto_loja_virtual
 
-# listar_colunas_tabelas_mysql
 Aplicação Desenvolvida em PHP, JAvascript e Mysql, para Cadastrar produtos, sendo disponibilizados para venda (desde que tenha disponibilidade do produto em estoque).
 
 >> Daddos obrigatórios de Cadastro
 (Nome,preço,Vlr Desconto, Formas de pagamento e descrição). 
 
+ F![inicio2](https://user-images.githubusercontent.com/49642934/149069059-2a74e150-c4fd-4e7c-bdd5-5cd342277601.png)
+ 
 -----------------------
 
-**SELECIONANDO BANCO DE DADOS**
-- 
+**INICIANDO A APLICAÇÃO**
+
+Para iniciar a plicação, é necessario criar a base de dados, conforme o arquivo disponibilizado nesse repositório (create_table.sql).
+Foi disponibilizado também uma tabela com 27 registros para ser inputado na base de dados.
 
 
-![img1](https://user-images.githubusercontent.com/49642934/147925449-7b51b955-750f-41d9-9934-eaf9f7e808a3.png)
+-----------------------
+
+**TELA INICIAL**
+
+A tela inicial exibe os registros em 3 categorias. 
+
+> Lançamentos e Destaques
+
+
+
+
