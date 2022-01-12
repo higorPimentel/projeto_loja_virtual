@@ -110,7 +110,7 @@ width:100%;
 	-ms-flex: 0 0 21.666667%;
 	flex: 0 0 21.666667%;
 	max-width: 21.666667%;
-	
+		
   }
 
 .col-3 {
@@ -135,7 +135,7 @@ width:100%;
 
 }
 
-.grup_lanc{
+.grup_lanc, .grup_ofertas, .grup_tds{
      margin-left: 30px;
 }
 
@@ -161,7 +161,7 @@ width:100%;
 		margin-left: 50px;
 	}
 
-	.grup_lanc{
+	.grup_lanc, .grup_ofertas{
 		margin-left: 10px;
 	}
 

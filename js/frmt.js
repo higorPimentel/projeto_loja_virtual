@@ -5,9 +5,6 @@ window.addEventListener('scroll',exec_tst)
 window.addEventListener('resize',resize_home)
 
 
-
-
-
 function resize_home(event) {
 
        // wdth_window =  event.target.screen.width
@@ -19,39 +16,46 @@ function resize_home(event) {
 
                 if(wdth_window < 1305 && wdth_window > 1014) {
                      qtd_prodts_bloc = 3
+                     qtd_prodts_bloc_ofertas = 3
                 }   else if(wdth_window < 1014 && wdth_window > 764) {                  
                     qtd_prodts_bloc = 2
+                    qtd_prodts_bloc_ofertas = 2
                 }   else if(wdth_window < 764) {                    
                     qtd_prodts_bloc = 1
+                    qtd_prodts_bloc_ofertas = 1
                 } else {                   
                     qtd_prodts_bloc = 4
+                    qtd_prodts_bloc_ofertas = 4
                 }
 
                 insere_prodts_cont_lanc()
+                insere_prodts_cont_ofertas()
           
         
 }
 
 function exec_tst(event){
-	
-    /*
-    if (window.scrollY > 50 ) {
-		$('#container_header').css('backgroundColor','rgba(250, 250, 250, 0.9)')
-		$('#container_header').css('boxShadow','1px 1px 10px 5px  gray')
-		$('#container_header').css('transition','0.5s')
-		$('.opc_menu_incio').css('color','#4682B4')
 
-		$('#img_logo').attr('src','img/logo_transp.png')
+    //console.log(window.scrollY)
+	
+
+    if (window.scrollY > 50 ) {
+		$('.container_header').css('backgroundColor','rgba(250, 250, 250, 0.9)')
+		$('.container_header').css('boxShadow','1px 1px 10px 5px  gray')
+		$('.container_header').css('transition','0.5s')
+		$('.itm_menu').css('color','#4682B4')
+
+		// $('#img_logo').attr('src','img/logo_transp.png')
 
 	} else {
-		$('#container_header').css('backgroundColor','rgba(46, 46, 54, 1)')
-		$('#container_header').css('boxShadow','none')
-		$('#Menu_inicial').css('color','#B0C4DE')
-		$('.opc_menu_incio').css('color','#B0C4DE')
+		$('.container_header').css('backgroundColor','#0078d4')
+		$('.container_header').css('boxShadow','none')
+		$('.Menu_inicial').css('color','#B0C4DE')
+		$('.itm_menu').css('color','white')
 
-		$('#img_logo').attr('src','img/logo4.png')
+		// $('#img_logo').attr('src','img/logo4.png')
 	}
-    */
+   
 
 }
 

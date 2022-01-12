@@ -22,7 +22,9 @@
                                 <input class="cx_text" type="text" id="cx_nome" autofocus>											
                             </div>	
                             <div class="grupo_cxs col-3" id="grupo_cx_nome">
-                                 <label class='lb_text tit_img'>Selecionar Imagem Produto</label>
+                                <!-- <label class='lb_text tit_img'>Selecionar Imagem do Produto</label> -->
+                                <input class='btns' id="btn_img_cad" type="button" value="Definir Imagem Cadastro">
+                                 <input type="file" id="file_img_prodt">
                                 <div class='container_img_prod'><img src="img/img_prod_default.png" class='img_prod'></div>											
                             </div>	
                     </div>
@@ -115,6 +117,23 @@
 
             txt_focus.addEventListener('focus', insere_foco_txt,true)
             txt_focus.addEventListener('blur', remove_foco_txt,true)
+
+            let btn_img_cad = document.querySelector('#btn_img_cad');
+            btn_img_cad.addEventListener('click', select_img)
+
+                     
+            window.addEventListener('load',inicia_app_cad)
+
+
+          
+          
+            function inicia_app_cad() {
+
+                dir_temp = ""
+                identific_img_select = 0
+
+ 
+            }
 
 
         </script>
