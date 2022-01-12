@@ -11,7 +11,7 @@ Aplicação Desenvolvida em PHP, JAvascript e Mysql, para Cadastrar produtos, se
 
 **INICIANDO A APLICAÇÃO**
 
-Para iniciar a plicação, é necessario criar a base de dados, conforme o arquivo disponibilizado nesse repositório (create_table.sql).
+Para iniciar a aplicação, é necessario criar a base de dados, conforme o arquivo disponibilizado nesse repositório (create_table.sql).
 Foi disponibilizado também uma tabela com 27 registros para ser inputado na base de dados.
 
 
@@ -21,7 +21,7 @@ Foi disponibilizado também uma tabela com 27 registros para ser inputado na bas
 
 A tela inicial exibe os registros em 3 categorias. 
 
-> Lançamentos e Destaques
+* Lançamentos e Destaques
 
 
 
