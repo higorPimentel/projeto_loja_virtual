@@ -1,6 +1,6 @@
 # projeto_loja_virtual
 
-Aplicação Desenvolvida em PHP, JAvascript e Mysql, para Cadastrar produtos, sendo disponibilizados para venda (desde que tenha disponibilidade do produto em estoque).
+Aplicação Desenvolvida em PHP, Javascript e Mysql, para Cadastrar produtos, sendo disponibilizados para venda (desde que tenha disponibilidade do produto em estoque).
 
 >> Daddos obrigatórios de Cadastro
 (Nome,preço,Vlr Desconto, Formas de pagamento e descrição). 
@@ -12,7 +12,7 @@ Aplicação Desenvolvida em PHP, JAvascript e Mysql, para Cadastrar produtos, se
 **INICIANDO A APLICAÇÃO**
 
 Para iniciar a aplicação, é necessario criar a base de dados, conforme o arquivo disponibilizado nesse repositório (create_table.sql).
-Foi disponibilizado também uma tabela com 27 registros para ser inputado na base de dados.
+Foi disponibilizado também uma tabela com 27 registros para ser inputado na base de dados (input_data.sql).
 
 
 -----------------------
@@ -25,9 +25,12 @@ A tela inicial exibe os registros em 3 categorias.
 * Promoções e Ofertas
 * Todos os Produtos
 
-As categorias "Lançamentos e Destaques" e  "Promoções e Ofertas", só exibira um produto desde que seja especificado (por um checkbox) no momento do cadastro.
+As categorias "Lançamentos e Destaques" &  "Promoções e Ofertas", só exibira um determinado produto desde que seja especificado no cadastro (Essa identificação ocorre por um checkbox).
 
-Também é possivel pesquisar por um produto, utilizando a caixa de pesquisa no Header da pagina inicial.
+NA tela inicial, também é possivel pesquisar por um produto digitando o nome, ou somente parte do nome. Conforme no exemplo abaixo (pesquisa feito pelo nome "acer", retornou 3 produtos cadastrados.
+
+![Captura de tela 2022-01-13 005859](https://user-images.githubusercontent.com/49642934/149263516-50c56195-8f23-4fc3-97c8-d363a79988f3.png)
+
 
 -----------------------
 
