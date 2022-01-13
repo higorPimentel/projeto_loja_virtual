@@ -1,12 +1,8 @@
 # projeto_loja_virtual
 
-Aplicação Desenvolvida em PHP, Javascript e Mysql, para Cadastrar produtos, sendo disponibilizados para venda (desde que tenha disponibilidade do produto em estoque).
+Aplicação Desenvolvida em PHP, Javascript e Mysql, para Cadastrar produtos, sendo esses disponibilizados para venda (desde que tenha saldo em estoque).
 
->> Daddos obrigatórios de Cadastro
-(Nome,preço,Vlr Desconto, Formas de pagamento e descrição). 
 
- F![inicio2](https://user-images.githubusercontent.com/49642934/149069059-2a74e150-c4fd-4e7c-bdd5-5cd342277601.png)
- 
 -----------------------
 
 **INICIANDO A APLICAÇÃO**
@@ -40,14 +36,35 @@ A tela de cadastro permite realizar o cadastro de novos produtos e fazer a  Edi�
 
 * Opção Novo
 
-Ao acessar a pagina de cadastro, a opação "novo" já está selecionado.Realize o preenchimento dos dados.
+Ao acessar a pagina de cadastro, a opação "novo" já está selecionado.
+Realize o preenchimento dos dados.
 Para vincular uma imagem ao produto cadastrado, selecione a imagem através do botão (escolher Ficheiro), em seguida clique em definir imagem Cadastro.
 ao finalizar o preenchimento e ter selecionado a imagem pressione o botão confirmar para efetivar o cadastro (A seleção de imagem de produto é opcional).
 
+![cadastro_produto](https://user-images.githubusercontent.com/49642934/149070106-3bcd9e6e-d028-415a-bd11-d74aaa97ea4b.png)
+
+
 * Opção Editar
 
+Ao clicar na opção "Editar produto", será exibido um pop up com o campo de pesquisa (é possivel pesquisar o produto somente pelo id - numero de identificação. Caso precise, acesse a pagina relatório para localizar o id de um determinado produto).
 
-![cadastro_produto](https://user-images.githubusercontent.com/49642934/149070106-3bcd9e6e-d028-415a-bd11-d74aaa97ea4b.png)
+Caso a pesquisa sejá concluída com exito, será exibido os dados do registro pesquisado. Realize as alterações necessária e clique em confirmar para efetivar as alterações.
+
+
+![Captura de tela 2022-01-13 011951](https://user-images.githubusercontent.com/49642934/149265386-e0e76b23-588b-4738-815d-4ca69028bac7.png)
+
+![Captura de tela 2022-01-13 012032](https://user-images.githubusercontent.com/49642934/149265395-923190da-d2d9-46a0-8254-6e64846dbd51.png)
+
+
+-----------------------
+
+**RELATÓRIO**
+
+A tela de Relatório exibe uma listagem de todos os registros.
+
+
+
+![Captura de tela 2022-01-13 012209](https://user-images.githubusercontent.com/49642934/149265508-1d39fc6e-9a7d-4fea-a006-82c65ebc63bf.png)
 
 
 
