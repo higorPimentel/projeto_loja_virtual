@@ -19,7 +19,7 @@
         select_opc.addEventListener('click', select_opcs)
 
         let btn_cadastra = document.querySelector('#btn_cadastra')
-         btn_cadastra.addEventListener('click', cadastrar_item)
+         btn_cadastra.addEventListener('click', processa_solicitacao)
 
 
 
@@ -47,9 +47,15 @@
                             if(elemnt == 'opc_novo') {
                                 opc_select = 1
                                 $('.tit_frm').text('Cadastro de Produtos')
+                                limpar_form()
+                                $('#cx_nome').focus()
                             } else if(elemnt == 'opc_edit')  {
+                              
                                 opc_select = 2
                                 $('.tit_frm').text('Editar Produtos')
+                                $(".container_modal").css('display','block'); 
+
+                               
                             }
 
 

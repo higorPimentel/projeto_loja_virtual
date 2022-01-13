@@ -2,8 +2,33 @@
 
 window.addEventListener('load',inicia_app)
 window.addEventListener('scroll',exec_tst)
-window.addEventListener('resize',resize_home)
 
+
+
+
+
+let container_menu_mob = document.querySelector('.container_menu_mob');
+container_menu_mob.addEventListener('click', exib_menu)
+
+
+function exib_menu() {
+ 
+    valid_exib_menu ++
+
+    if (valid_exib_menu == 1 ) {
+        $(".container_menu_mobile").css("display","inline-block")
+        $(".trc_itm").css("display","none")
+        $(".itm_x").css("display","inline-block")
+    } else if (valid_exib_menu > 1) {
+        
+        $(".container_menu_mobile").css("display","none")
+        $(".itm_x").css("display","none")
+        $(".trc_itm").css("display","inline-block")
+        valid_exib_menu = 0
+
+    }
+
+}
 
 function resize_home(event) {
 
@@ -44,6 +69,8 @@ function exec_tst(event){
 		$('.container_header').css('boxShadow','1px 1px 10px 5px  gray')
 		$('.container_header').css('transition','0.5s')
 		$('.itm_menu').css('color','#4682B4')
+		$('.tit_loja').css('color','#4682B4')
+
 
 		// $('#img_logo').attr('src','img/logo_transp.png')
 
@@ -52,6 +79,8 @@ function exec_tst(event){
 		$('.container_header').css('boxShadow','none')
 		$('.Menu_inicial').css('color','#B0C4DE')
 		$('.itm_menu').css('color','white')
+
+        $('.tit_loja').css('color','white')
 
 		// $('#img_logo').attr('src','img/logo4.png')
 	}
@@ -66,6 +95,7 @@ function exec_tst(event){
 function inicia_app() {
 
     opc_select = 1
+    valid_exib_menu = 0
     
 }
 
@@ -76,7 +106,8 @@ function insere_foco_txt(event){
 
     let elemnt =  event.srcElement.id
     let  type_element  = elemnt.substr(0,2) 
-    
+
+      
     
     if(type_element =='cx') {
          $(`#${elemnt}`).css('box-shadow','0px 0px 10px 0px #B5B5B5')

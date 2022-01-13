@@ -1,8 +1,9 @@
 <?php
 
+         
+          include_once('includes/header.php');
           include_once('includes/script.php');  
           include_once('includes/topo.php');
-          include_once('includes/header.php');
           include_once('includes/modal_produto.php');
 
 ?>
@@ -104,13 +105,16 @@
          btn_tds_previous.addEventListener('click', previous_item_tds)
 
          let cx_pesquisa = document.querySelector("#cx_pesquisa")
-          cx_pesquisa.addEventListener('keyup', filter_item)
+          cx_pesquisa.addEventListener('keyup', filter_item_enter)
+
+          let btn_pesquisa = document.querySelector("#btn_pesquisa")
+          btn_pesquisa.addEventListener('click', filter_item_bttn)
 
 
           
          
          
-         
+               window.addEventListener('resize',resize_home)
                window.addEventListener('load',inicia_app_indx)
 
 
@@ -128,6 +132,7 @@
 
                          $('#cont_cx_pesquisa').css('display','inline-block')
 
+                         pesquisa_inf = ""
                          pesquisa_listagem = 0
                          load_prodts()
                     }

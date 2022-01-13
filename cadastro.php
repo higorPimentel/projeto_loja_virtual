@@ -1,10 +1,11 @@
 <?php
 
         
-        include_once('includes/script.php');  
-        include_once('includes/topo.php');
-        include_once('includes/header.php');
-        include_once('includes/barra_opcoes.php');
+include_once('includes/header.php');
+            include_once('includes/script.php');  
+            include_once('includes/topo.php');
+            include_once('includes/barra_opcoes.php');
+            include_once('includes/modal_pesq_produto.php');
 
 ?>
 
@@ -12,7 +13,7 @@
 
         <form class="frm_registro frm_produtos">
 				
-                <h1 class='tit_frm'>Cadastro de Produtos</h1>
+                <h1 class='tit_frm tit_frm_cad'>Cadastro de Produtos</h1>
 
                 <div class='barra_sepra'></div>
                     
@@ -84,7 +85,7 @@
                                    <label class='lb_text'>Crédito</label>
 
                                    <input type="checkbox" id='check_frma_pgt_transferencia'>       
-                                   <label class='lb_text'>Trânsferencia</label>
+                                   <label class='lb_text'>Transferência</label>
 
                                    <input type="checkbox" id='check_frma_pgt_pix'>       
                                    <label class='lb_text'>Pix</label>
@@ -113,7 +114,7 @@
             let check_frma_pgt_todas = document.querySelector('#check_frma_pgt_todas')
             check_frma_pgt_todas.addEventListener('click', select_opcs_pgto)
 
-            let txt_focus = document.querySelector(".frm_registro")
+            let txt_focus = document.querySelector(".frm_produtos")
 
             txt_focus.addEventListener('focus', insere_foco_txt,true)
             txt_focus.addEventListener('blur', remove_foco_txt,true)

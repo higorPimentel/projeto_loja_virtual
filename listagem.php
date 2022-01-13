@@ -11,10 +11,8 @@
 
             <form class="frm_registro frm_produtos">
 
-            <h1 class='tit-frm tit-list'>Listagem de Registros</h1>    
-
-               <div class='bloco_inf_list'>                                     
-                    <div class='tit_list'>Registros Listados.:</div><div class='vlr_tit_list'>0000</div>
+                 <div class='bloco_inf_list'>                                     
+                    <div class='tit_list'>Total Registros Listados: </div><div class='vlr_tit_list'>0000</div>
                </div>
                <div  class="row">	
                     <div class="grupo_cxs col-6" id="grupo_cx_id">

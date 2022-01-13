@@ -22,8 +22,74 @@ $tipo_requisicao = $_POST['tipo_requisicao'];
             echo(efetiv_compra());
         } elseif ($tipo_requisicao ==5) { 
             echo(carregar_produtos_filtro());
+        }  elseif ($tipo_requisicao ==6) { 
+            echo(pesquisar_produto());
+        } elseif ($tipo_requisicao ==7) { 
+            echo(updat_prod());
         }
 
+
+
+function updat_prod() {
+
+$cx_nome = $_POST['objt_frm_cad']['cx_nome'];
+$cx_preco = $_POST['objt_frm_cad']['cx_preco'];
+$cx_desconto = $_POST['objt_frm_cad']['cx_desconto'];
+$cx_vlr_liquido = $_POST['objt_frm_cad']['cx_vlr_liquido'];
+$cx_qtd_estoque = $_POST['objt_frm_cad']['cx_qtd_estoque'];
+$cx_descricao = $_POST['objt_frm_cad']['cx_descricao'];
+$txt_produto_destaque = $_POST['objt_frm_cad']['txt_produto_destaque'];
+$txt_produto_ofertas = $_POST['objt_frm_cad']['txt_produto_ofertas'];
+$txt_formas_pgto = $_POST['objt_frm_cad']['txt_formas_pgto'];    
+
+$id_produto = $_POST['id_produto_pesq'];
+
+    
+$sql_updt = "UPDATE tb_produtos SET
+        nome = '$cx_nome',
+        preco = '$cx_preco',
+        vlr_desconto = '$cx_desconto',
+        vlr_liquido_produto = '$cx_vlr_liquido',
+        qtd_estoque = '$cx_qtd_estoque',
+        def_produto_destaque = '$txt_produto_destaque',
+        def_produto_ofertas = '$txt_produto_ofertas',
+        formas_pgto = '$txt_formas_pgto',
+        descricao = '$cx_descricao'
+        WHERE id_produto = '$id_produto'";
+
+        $process_query_updt =  mysqli_query($_SESSION['conn'],$sql_updt);
+
+        return $process_query_updt;
+
+
+}
+
+function pesquisar_produto() {
+
+$id_produto = $_POST['id_produto'];
+
+$sql_select = "SELECT * FROM  tb_produtos WHERE id_produto =  '$id_produto'";      
+
+$process_query =  mysqli_query($_SESSION['conn'],$sql_select);
+
+
+if($process_query->num_rows > 0 ) {
+
+    foreach ($process_query as $return) {
+        $data_return[] =  $return;
+    } 
+   
+} else {
+
+    $data_return = 0;
+}
+
+   
+
+
+return json_encode($data_return);
+
+}
 
 
 function carregar_produtos_filtro() {

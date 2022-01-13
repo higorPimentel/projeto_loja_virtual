@@ -128,6 +128,7 @@ function load_prodts() {
  let tipo_requisicao = 2
 
 
+
              $.ajax({
                  method:'POST',
                  url:'modulos/functions.php',
@@ -262,6 +263,7 @@ function define_itens_lanc() {
 function insere_prodts_cont_lanc() {
 
 
+    
     let string_info = ''
 
     $(".grup_lanc").html(''); 
@@ -510,6 +512,81 @@ function insere_prodts_cont_ofertas() {
 
 }
 
+function processa_solicitacao() {
+
+
+    if(opc_select ==1) {
+
+        cadastrar_item()
+
+    } else if(opc_select ==2) {
+
+        alterar_item()
+
+    }
+
+
+}
+
+
+function alterar_item() {
+    
+
+    let tipo_requisicao = 7
+    let id_produto_pesq = id_produto_pesquisado
+    var_valid_form = 0
+        
+
+        criar_objt_frm()
+            valid_frm()
+
+
+                if(var_valid_form == 0) {
+                    $('.msg_erro').html('Preencha todos os campos para prosseguir!!!') 
+                    exibe_erro()
+                    return
+                } 
+
+
+
+                $.ajax({
+                    method:'POST',
+                    url:'modulos/functions.php',
+                    data:
+                    {
+                        tipo_requisicao:tipo_requisicao,
+                        id_produto_pesq,id_produto_pesq,
+                        objt_frm_cad:objt_frm_cad  
+                    },
+                    success:function(retorno) {
+                        
+                        let return_req = JSON.parse(retorno)
+
+
+                        if(return_req == 1) {
+                            $('.msg_sucesso').html('Registro Atualizado com exito.') 
+                            exibe_sucess()                            
+                            limpar_form()
+                            $('#cx_nome').focus()
+                            
+
+                        } else {
+
+                            $('.msg_erro').html('Erro ao cadastrar Material.Contate o Desenvolvedor!!!') 
+                            exibe_erro()
+
+                        }
+
+                        
+
+                    }
+                })    
+
+
+}
+
+
+
 
 function cadastrar_item() {
     
@@ -680,9 +757,20 @@ function valid_frm() {
 function select_img() {
    
 
+
+
     let fd = new FormData();
     let arquivos = $('#file_img_prodt')[0].files[0];	
      fd.append ('arquivo', arquivos);
+
+
+    if(opc_select ==2) {
+
+        $('.msg_erro').html('Opção indisponivel no modo de edição!!!') 
+        exibe_erro()
+        return
+
+    }
 
 
      if(arquivos == undefined) {
@@ -796,6 +884,27 @@ function cancela_compra() {
 
 }
 
+function cancela_edit() {
+
+
+    $('.container_modal').css('display','none') 
+
+    $('.opcs').css('border','none')
+    $('.opcs').css('backgroundColor','white')
+    
+
+
+    $('#opc_novo').css('border-right','1px solid #0078d4')
+    $('#opc_novo').css('border-left','1px solid #0078d4')
+    $('#opc_novo').css('border-top','3px solid #0078d4')
+    $('#opc_novo').css('background-color','rgb(240, 240, 240)')
+
+    opc_select = 1
+    $('.tit_frm').text('Cadastro de Produtos')
+
+
+}
+
 function efetv_compra() {
 
     let tipo_requisicao = 4;
@@ -839,60 +948,172 @@ function efetv_compra() {
 
 }
 
-function filter_item(event){
-  
-    
-    if(event.key =='Enter') {    
-     
-
-                let pesquisa = event.target.value
-                let tipo_requisicao = 5
+function efetiva_pesquisa() {
 
 
-                                $.ajax({
-                                    method:'POST',
-                                    url:'modulos/functions.php',
-                                    data:
-                                    {
-                                        tipo_requisicao:tipo_requisicao,
-                                        pesquisa:pesquisa             
-                                    },
-                                    success:function(retorno) {
+    let tipo_requisicao = 6;
+    let id_produto = $('#cx_pesquisa_produto').val() 
 
-                                            data_return = JSON.parse(retorno)                                          
-                                            
-                                            
-                                            $(".bl_lanc").css('display','none')
-                                            $(".bl_oferta").css('display','none') 
-                                            $(".tits_ff").css('display','none') 
-                                            $(".br_sp").css('display','none') 
+                $.ajax({
+                    method:'POST',
+                    url:'modulos/functions.php',
+                    data:
+                    {
+                        tipo_requisicao:tipo_requisicao,
+                        id_produto:id_produto
+       
+                    },
+                    success:function(retorno) {
 
+                        let dt_ret = JSON.parse(retorno)
 
+                     
+                        id_produto_pesquisado = dt_ret[0].id_produto
 
-                                           if(data_return.length > 0) {
-                                           
-                                            $(".grup_tds").css('display','inline-block') 
-                                            $(".grup_tds").text(''); 
-                                            $("#tit_tds").text('Resultado da Pesquisa - (' + data_return.length + ') Produtos'); 
-                                            
-                                            
-                                            insere_prodts_cont_tds()
-                                        } else {
-                                            
-                                            $(".grup_tds").css('display','none') 
-                                            $("#tit_tds").text('Resultado da Pesquisa - (0) Produtos'); 
-                                           
+                        if(dt_ret == 0) {
+
+                            $('.msg_erro').html('Produto não Localizado !!!') 
+                            exibe_erro()  
+
+                            } else {
+
+                                $('.container_modal').css('display','none') 
+
+                                $('#cx_nome').val(dt_ret[0].nome)
+                                $('#cx_preco').val(dt_ret[0].preco)
+                                $('#cx_desconto').val(dt_ret[0].vlr_desconto)
+                                 $('#cx_vlr_liquido').val(dt_ret[0].vlr_liquido_produto)
+                                 $('#cx_qtd_estoque').val(dt_ret[0].qtd_estoque)
+                                 $('#cx_descricao').val(dt_ret[0].descricao)
+
+                                 $(".img_prod").attr('src',dt_ret[0].path_imagem)	
+
+                                 if(dt_ret[0].def_produto_destaque == 1) {
+                                   $('#check_prod_destaq').prop('checked',true);
+                                 }  else {
+                                    $('#check_prod_destaq').prop('checked',false);
+                                 }
+
+                                 
+                                 if(dt_ret[0].def_produto_ofertas == 1) {                                    
+                                    $('#check_prod_ofertas').prop('checked',true);
+                                 } else {
+                                    $('#check_prod_ofertas').prop('checked',false);
+                                 }
+
+                                
+                                
+                                let dados_frms_pgt = dt_ret[0].formas_pgto
+                                let dados_frm_pg = dados_frms_pgt.split(',')
+
+                                 for (let k = 0; k < dados_frm_pg.length; k++) {
+
+                                  
+                                      let inf_nme = dados_frm_pg[k];
+                                      inf_nme =  inf_nme.toLowerCase()
+
+                                        if(inf_nme == 'crédito') {
+                                            inf_nme = 'credito'
                                         }
-                                           
-                                            
-                                        
-                                            console.log(data_return)                     
 
-                                    }
-                                })    
+
+                                        if(inf_nme == 'transferência') {
+                                            inf_nme = 'transferencia'
+                                        }
+
+                                 
+
+                                      $("#check_frma_pgt_" +  inf_nme + "").prop("checked",true);
+                                     
+                                 }
+                              
+                              
+                                
+
+                            }
+                        
+                                            
                     }
+
+                    })
+
+
 }
 
+function filter_item_enter(event){  
+
+    if(event.key =='Enter') {    
+       
+        pesquisa_inf = event.target.value
+
+      
+        filter_ittem()
+
+              }
+}
+
+function filter_item_bttn(){ 
+         
+        pesquisa_inf = $('#cx_pesquisa').val()
+        filter_ittem()
+
+              
+}
+
+
+function filter_ittem() {
+
+
+
+    let pesquisa = pesquisa_inf
+    let tipo_requisicao = 5
+
+
+                    $.ajax({
+                        method:'POST',
+                        url:'modulos/functions.php',
+                        data:
+                        {
+                            tipo_requisicao:tipo_requisicao,
+                            pesquisa:pesquisa             
+                        },
+                        success:function(retorno) {
+
+                                data_return = JSON.parse(retorno)                                          
+                                
+                                
+                                $(".bl_lanc").css('display','none')
+                                $(".bl_oferta").css('display','none') 
+                                $(".tits_ff").css('display','none') 
+                                $(".br_sp").css('display','none') 
+
+
+
+                               if(data_return.length > 0) {
+                               
+                                $(".grup_tds").css('display','inline-block') 
+                                $(".grup_tds").text(''); 
+                                $("#tit_tds").text('Resultado da Pesquisa - (' + data_return.length + ') Produtos'); 
+                                
+                                
+                                insere_prodts_cont_tds()
+                            } else {
+                                
+                                $(".grup_tds").css('display','none') 
+                                $("#tit_tds").text('Resultado da Pesquisa - (0) Produtos'); 
+                               
+                            }
+                               
+                                
+                            
+                                console.log(data_return)                     
+
+                        }
+                    })    
+
+
+
+}
 
 
 
@@ -908,7 +1129,8 @@ function montar_table_list(){
 	// var new_table = document.querySelector('.frmt_tabela_fretes')
 	 tbl = '';	
 	 tbl +='<tr>'	
-	 tbl +='<th>Nome Produto</th>'
+	 tbl +='<th>Id Produto</th>'
+	 tbl +='<th>Nome</th>'
 	 tbl +='<th>Preço</th>'	
 	 tbl +='<th>Vlr desconto</th>'
 	 tbl +='<th>Vlr. Liq. Produto</th>'
@@ -933,6 +1155,7 @@ function montar_table_list(){
 				}
 
 			tbl +=`<tr>`
+			tbl +=`<td class=${cls} id=it${data_return[i].id_produto}>${data_return[i].id_produto}</td>`
 			tbl +=`<td class=${cls} id=it${data_return[i].id_produto}>${data_return[i].nome}</td>`
 			tbl +=`<td class=${cls} id=it${data_return[i].id_produto}>${data_return[i].preco}</td>`
 			tbl +=`<td class=${cls} id=it${data_return[i].id_produto}>${data_return[i].vlr_desconto}</td>`
@@ -953,7 +1176,7 @@ function montar_table_list(){
 
 	
 	$('#table_list').html(tbl);
-	$('.vlr_tit_list').html(itm);
+	$('.vlr_tit_list').html( "(" + itm + ")");
 	
 
 }
