@@ -1,7 +1,4 @@
 <div class='container_header'>
-
-    <img id='ico_menu' src="img/car1.png"/>
-    
         <h1 class='tit_loja'>Shop Tech Online</h1>
 
         <div id='cont_cx_pesquisa'>

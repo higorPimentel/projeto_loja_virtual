@@ -7,14 +7,16 @@ body{
 }
 
 #ico_menu{
-    margin-top: 2px;
+    margin-top: 10px;
     margin-left: 80px;
     /* width: 3%; */
     width:35px;
 }
 
 .tit_loja{
-    margin-top: -50px;
+    position: relative;
+    margin-top: 25px;
+    margin-left: 50px;
     display: inline-block;
     font-family: Bradley Hand, cursive;
     color: white;
@@ -565,7 +567,7 @@ input[type=range] {
   
 
   #cont_cx_pesquisa{
-    width: 30%;
+    width: 35%;
     margin-left: 60px;
     display: inline-block;
     display: none;
@@ -577,6 +579,7 @@ input[type=range] {
     background-color:#24a0ff;
     border:solid 1px  #d4cece;
     color: white;
+    margin-top: -150px;
 }
 
 #cx_pesquisa::placeholder{ 
@@ -585,7 +588,7 @@ input[type=range] {
 
 #btn_pesquisa{
     margin-right: -57px;
-    margin-top: -30px;
+    margin-top: -150px;
     padding: 8px 15px;
     height: 35px;
     padding-bottom: 4px;
@@ -594,7 +597,7 @@ input[type=range] {
     border:solid 1px  #d4cece;
     border-radius: 2px;
     cursor: pointer;
-}
+  }
 
 #btn_pesquisa:hover{
     background-color:#24a0ff75;
@@ -820,7 +823,16 @@ input[type=range] {
 
     #cont_cx_pesquisa{
         margin-top: 20px;
+        width: 50%;
       
+    }
+
+    #cx_pesquisa{
+        margin-top: -20px;
+    }
+
+    #btn_pesquisa{
+        margin-top: -20px;  
     }
 }
 
