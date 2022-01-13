@@ -7,8 +7,15 @@ Aplicação Desenvolvida em PHP, Javascript e Mysql, para Cadastrar produtos, se
 
 **INICIANDO A APLICAÇÃO**
 
-Para iniciar a aplicação, é necessario criar a base de dados, conforme o arquivo disponibilizado nesse repositório (create_table.sql).
+Para iniciar a aplicação, é necessario criar a base de dados em mysql, conforme o arquivo disponibilizado nesse repositório (create_database.sql).
+Criação da tabela no arquivo (create_table.sql).
 Foi disponibilizado também uma tabela com 27 registros para ser inputado na base de dados (input_data.sql).
+
+* configurando conexão com a base de dados.
+
+Para configurar os dados de conexão com a base de dados, acesse o arquivo no diretório: modulos/cn.php.
+
+![Captura de tela 2022-01-13 012857](https://user-images.githubusercontent.com/49642934/149266093-020f72f1-35a2-42f5-8f0a-b0d14ab15b37.png)
 
 
 -----------------------
