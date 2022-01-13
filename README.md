@@ -36,7 +36,15 @@ NA tela inicial, também é possivel pesquisar por um produto digitando o nome, 
 
 **CADASTRO**
 
-A tela de cadastro permite os casdatros e Edição dos registros que já foram criados.
+A tela de cadastro permite realizar o cadastro de novos produtos e fazer a  Edição dos registros que já foram cadastrados.
+
+* Opção Novo
+
+Ao acessar a pagina de cadastro, a opação "novo" já está selecionado.Realize o preenchimento dos dados.
+Para vincular uma imagem ao produto cadastrado, selecione a imagem através do botão (escolher Ficheiro), em seguida clique em definir imagem Cadastro.
+ao finalizar o preenchimento e ter selecionado a imagem pressione o botão confirmar para efetivar o cadastro (A seleção de imagem de produto é opcional).
+
+* Opção Editar
 
 
 ![cadastro_produto](https://user-images.githubusercontent.com/49642934/149070106-3bcd9e6e-d028-415a-bd11-d74aaa97ea4b.png)
