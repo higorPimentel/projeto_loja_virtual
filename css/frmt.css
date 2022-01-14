@@ -567,10 +567,12 @@ input[type=range] {
   
 
   #cont_cx_pesquisa{
+    position: absolute;
     width: 35%;
     margin-left: 60px;
     display: inline-block;
-    display: none;
+    /*display: none;*/
+    margin-top: 3px;
 }
 
 #cx_pesquisa{
@@ -587,10 +589,10 @@ input[type=range] {
 }
 
 #btn_pesquisa{
-    margin-right: -57px;
-    margin-top: -150px;
+    margin-right: -67px;
+    margin-top: -38px;
     padding: 8px 15px;
-    height: 35px;
+    height: 38px;
     padding-bottom: 4px;
     float: right;
     background-color:#24a0ff;

@@ -1,9 +1,9 @@
 <?php
 
         
-include_once('includes/header.php');
-            include_once('includes/script.php');  
             include_once('includes/topo.php');
+            include_once('includes/header.php');
+            include_once('includes/script.php');  
             include_once('includes/barra_opcoes.php');
             include_once('includes/modal_pesq_produto.php');
 
