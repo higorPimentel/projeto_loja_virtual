@@ -1,8 +1,8 @@
 <?php
 
           include_once('includes/topo.php');
-          include_once('includes/script.php');  
           include_once('includes/header.php');
+          include_once('includes/script.php');  
           include_once('includes/modal_produto.php');
 
 ?>
@@ -40,6 +40,9 @@
                     function inicia_app_list() {
                                                  
                          
+                $('#cx_pesquisa').css('display','none')
+                $('#btn_pesquisa').css('display','none')
+
                          pesquisa_listagem = 1
                          load_prodts()
                          

@@ -819,9 +819,12 @@ input[type=range] {
 
 @media (max-width:658px) { 
 
+   
+   /*
     .tit_loja{
         display: none;
     }
+    */
 
     #ico_menu{
         display: none;

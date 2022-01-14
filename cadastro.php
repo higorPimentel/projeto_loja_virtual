@@ -133,6 +133,11 @@
                 dir_temp = ""
                 identific_img_select = 0
 
+                $('#cx_pesquisa').css('display','none')
+                $('#btn_pesquisa').css('display','none')
+
+               
+
  
             }
 

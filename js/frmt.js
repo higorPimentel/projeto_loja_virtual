@@ -44,6 +44,8 @@ function  resize_pages(event) {
         $(".trc_itm").css("display","block")
     }
 
+    console.log(wdth_window)
+
 }
 
 function resize_home(event) {
