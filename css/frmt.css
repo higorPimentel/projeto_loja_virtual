@@ -326,13 +326,13 @@ body{
 
 .btns_next{    
     margin-top: 200px;
-    right: 100;
+    right: 100px; 
 }
 
 .btns_previous {
 
     margin-top: 200px;
-    left: 90;
+    left: 90px;
 
 }
 
