@@ -212,3 +212,15 @@ width:100%;
 	}
 
 }
+
+@media(max-width: 540px){
+
+	.frm_registro{
+
+		margin-left: 10px;
+		margin-right: 10px;
+
+		
+	}
+
+}

@@ -2,6 +2,7 @@
 
 window.addEventListener('load',inicia_app)
 window.addEventListener('scroll',exec_tst)
+window.addEventListener('resize',resize_pages)
 
 
 
@@ -23,9 +24,24 @@ function exib_menu() {
         
         $(".container_menu_mobile").css("display","none")
         $(".itm_x").css("display","none")
-        $(".trc_itm").css("display","inline-block")
+        $(".trc_itm").css("display","block")
         valid_exib_menu = 0
 
+    }
+
+}
+
+function  resize_pages(event) { 
+
+    wdth_window =  event.target.window.innerWidth
+
+    
+
+    if(wdth_window  > 1080) { 
+
+        $('.container_menu_mobile').css('display','none')
+        $(".itm_x").css("display","none")
+        $(".trc_itm").css("display","block")
     }
 
 }
