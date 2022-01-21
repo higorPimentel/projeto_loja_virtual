@@ -44,6 +44,7 @@
                 $('#btn_pesquisa').css('display','none')
 
                          pesquisa_listagem = 1
+                         page_atual = 'listagem'
                          load_prodts()
                          
                     }

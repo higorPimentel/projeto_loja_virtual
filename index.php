@@ -134,6 +134,7 @@
 
                          pesquisa_inf = ""
                          pesquisa_listagem = 0
+                         page_atual = 'index'
                          load_prodts()
                     }
           </script>

@@ -132,6 +132,7 @@
 
                 dir_temp = ""
                 identific_img_select = 0
+                page_atual = 'cadastro'
 
                 $('#cx_pesquisa').css('display','none')
                 $('#btn_pesquisa').css('display','none')

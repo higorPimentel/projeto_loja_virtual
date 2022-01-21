@@ -20,9 +20,9 @@
     </nav>
 
     <div class='container_menu_mob'>
-        <div class='trc_itm'></div>
-        <div class='trc_itm'></div>
-        <div class='trc_itm'></div>
+        <div  id='trc_itm_1' class='trc_itm'></div>
+        <div  id='trc_itm_2' class='trc_itm'></div>
+        <div  id='trc_itm_3' class='trc_itm'></div>
         <div class='itm_x'>X</div>
     </div>
 

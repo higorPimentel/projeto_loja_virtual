@@ -30,8 +30,8 @@ body{
     position: fixed;
     /* background-color: #363636; */
     /* background-color: white; */
-    background-color:#0078d4;
-    /* background-color:#22142b; */
+    /* background-color:#0078d4; */
+    background-color:#0a030e;
     /* background-color:#2a55a4; */
     border-bottom: 1px solid rgb(214, 207, 207);
     z-index: 6;
@@ -92,7 +92,7 @@ body{
 }
 
 .btns {
-    background-color:#0078d4;
+    background-color:#65686b;
     border:Solid 1px #80bff0;
     padding: 7px 50px;
     color: white;
@@ -100,7 +100,8 @@ body{
 }
 
 .btns:hover { 
-    background-color:#095c9b;
+    background-color:#65686b79;
+    color: rgb(61, 59, 59);
     transition: 0.3s;
 }
 
@@ -282,8 +283,9 @@ body{
 }
 
 .btns_comp:hover{
-    background-color: #36363600;
-    color: #363636;
+    background-color:#65686b79;
+    color: rgb(61, 59, 59);
+    transition: 0.3s;
 }
 
 .btns_comp_indisp{
@@ -578,14 +580,14 @@ input[type=range] {
 #cx_pesquisa{
     margin-top: -30px;
     height: 35px;
-    background-color:#24a0ff;
+    background-color:#ffffff;
     border:solid 1px  #d4cece;
-    color: white;
+    color: rgb(83, 74, 74);
     margin-top: -150px;
 }
 
 #cx_pesquisa::placeholder{ 
-    color: #E8E8E8;
+    color: #776767;
 }
 
 #btn_pesquisa{
@@ -595,14 +597,15 @@ input[type=range] {
     height: 38px;
     padding-bottom: 4px;
     float: right;
-    background-color:#24a0ff;
+    /* background-color:#163249; */
+    background-color:white;
     border:solid 1px  #d4cece;
     border-radius: 2px;
     cursor: pointer;
   }
 
 #btn_pesquisa:hover{
-    background-color:#24a0ff75;
+    background-color:#d0ebe7fd;
     transition: 0.5s;
 }
 
@@ -678,7 +681,8 @@ input[type=range] {
 
 .container_menu_mob {
     width: 30px;
-    background-color:#24a0ff;
+    background-color:white;
+    /* background-color:#163249; */
     border:solid 1px  #d4cece;
     color: white;
     padding: 2px;
@@ -691,19 +695,36 @@ input[type=range] {
 }
 
 .trc_itm {
-     margin-top: 5px;
+    margin-top: 5px;
     margin-bottom: 5px;    
-    height: 1px;
-    background-color: white; 
+    height: 2px;
+    background-color: rgb(59, 48, 48); 
 }
 
 .itm_x {
     padding: 2px 10px;
-     display: none; 
+    display: none; 
 }
 
+/*
+
+#trc_itm_1 {
+    position: relative;
+    transform: rotate(45deg);
+    top:7px;
+}
+
+#trc_itm_3 {
+    position: relative;
+    transform: rotate(-45deg);
+    top:-7px;
+}
+
+*/
+
+
 .container_menu_mob:hover { 
-    background-color:#24a0ff00;
+    background-color:#e3e6e9e5;
     transition: 0.5s;  
 }
 
