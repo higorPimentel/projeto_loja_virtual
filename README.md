@@ -2,7 +2,7 @@
 
 Aplicação Desenvolvida em PHP, Javascript e Mysql, para Cadastrar produtos, sendo esses disponibilizados para venda (desde que tenha saldo em estoque).
 
-Ambiente teste : http://gestaodefretes.online/projeto_loja_virtual/
+Ambiente teste : http://gestaodefretes.webiste/projeto_loja_virtual/
 
 -----------------------
 
